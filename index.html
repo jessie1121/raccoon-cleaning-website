@@ -1,162 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>小浣熊居家清潔</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-    <style>
-        html {
-            scroll-padding-top: 80px; /* 避免 anchor 被導覽列遮住 */
-        }
-        body {
-            padding-top: 60px;
-            font-family: sans-serif;
-            margin: 0;
-        }
-        .nav-title {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-weight: bold;
-        font-size: 20px;
-        color: white;
-        vertical-align: middle;
-      }
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #bd9a75;
-            padding: 10px 0;
-            text-align: center;
-            z-index: 999;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .header-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        .compare-img {
-            width: 300px;
-            height: 600px;
-            object-fit: contain;
-            border: 1px solid #ccc;
-            margin: 10px;
-            transition: transform 0.3s ease;
-        }
-        .compare-img:hover {
-            transform: scale(1.4);
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-        .section {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .comparison-item {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .section {
-    background-color: #dbbd91; /* 淺奶茶背景 */
-    padding: 10px 20px;
-    /* border-left: 5px solid #66cecf; 邊條 */
-    border-radius: 5px;
-    margin-bottom: 20px;
-    color: #3f2e1e; /* 深棕文字，更清晰 */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小浣熊居家清潔｜專業清潔服務</title>
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      background-color: #fdfaf5;
+      color: #3f2e1e;
+    }
+    header {
+      background-color: #bd9a75;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    nav {
+      background-color: #fff8ec;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      color: #3f2e1e;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('static/封面照片.jpg') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      font-size: 32px;
+      font-weight: bold;
+    }
+    .section {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #bd9a75;
+    }
+    .compare-img {
+      width: 280px;
+      height: auto;
+      margin: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .compare-img:hover {
+      transform: scale(1.2);
+    }
+    .faq h4 {
+      color: #8b5e3c;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #bd9a75;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .nav-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      font-size: 30px;
+      color: white;
+      vertical-align: middle;
+    }
+    .floating-line {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00c300;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .floating-btn {
+  position: fixed;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-    </style>
+.floating-line { bottom: 20px; background-color: #00c300; }
+.floating-ig   { bottom: 70px; background-color: #e4405f; }
+.floating-fb   { bottom: 120px; background-color: #1877f2; }
+
+    .social-links {
+      margin-top: 10px;
+    }
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <span class="nav-title">
-            <img src="static/logo.jpg" width="50" alt="Logo">
-            小浣熊居家清潔
-        </span> |
-        <a href="#home">首頁</a> |
-        <a href="#services">服務項目</a> |
-        <a href="#about">關於我們</a> |
-        <a href="#comparison">清潔對比</a> |
-        <a href="#QA">常見問題</a> |
-        <a href="https://lin.ee/OutrShx">加入LINE</a>
-    </nav>
+  <header>
+    <span class="nav-title">
+      <img src="/static/logo.jpg" width="50" alt="Logo">
+      小浣熊居家清潔
+    </span> 
+    <p>台南專業清潔服務｜誠信、安全、效率、細心</p>
+  </header>
 
-    <div id="home" class="section">
-        <div class="header-bar">
-            <img src="static/logo.jpg" width="60" alt="Logo">
-            <h1>小浣熊居家清潔</h1>
-        </div>
-        <p>我們提供台南專業、誠信、安全的清潔服務。</p>
-        <p>服務據點大台南地區</p>
-        
+  <nav>
+    <a href="#home">首頁</a>
+    <a href="#services">服務項目</a>
+    <a href="#comparison">清潔對比</a>
+    <a href="#about">關於我們</a>
+    <a href="#QA">常見問題</a>
+    <a href="https://lin.ee/OutrShx">LINE聯絡</a>
+  </nav>
+
+  <div class="hero" id="home">
+    <!-- 小浣熊讓您回到乾淨的家 -->
+  </div>
+
+  <div class="section" id="services">
+    <h2>服務項目(場刊都是免費的喔~)</h2>
+    <div class="card">
+      <h3>標準清潔方案（4 小時）</h3>
+      <p>客廳、廚房、浴廁、地板與外部櫃體表面清潔。需於預約前確認重點清潔區域，當日依時數內盡力完成。</p>
+      <p>費用：NT$1900／次</p>
+      <p>可預約時段：上午 8:30–12:30、下午 2:00–6:00</p>
     </div>
 
-    <div id="services" class="section">
-        <h2 class="text-center mb-8 text-3xl font-bold">服務項目</h2>
-        <img src="static/封面照片.jpg" alt="清潔服務封面照片" class="mx-auto mb-12 rounded-lg shadow-md" width="80%">
-      
-        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8">
-          <!-- 標準方案卡片 -->
-          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
-            <h3 class="text-xl font-bold text-green-700 mb-4">標準清潔方案（4 小時）</h3>
-            <ul class="list-disc ml-5 space-y-1 text-gray-700 text-sm mb-4">
-              <li>客廳、廚房、浴廁、地板、外部櫃面清潔</li>
-              <li class="text-red-500">不開櫃</li>
-            </ul>
-            <p class="text-sm text-gray-600 mb-2">🔸 事前會與您確認重點清潔區域</p>
-            <p class="text-sm text-gray-600 mb-4">🔸 4 小時內盡量涵蓋範圍，敬請見諒</p>
-            <div class="bg-gray-50 p-3 rounded-md text-sm">
-              <p class="font-semibold mb-1">可選時段：</p>
-              <p>✔️ 早上 8:30–12:30<br>✔️ 下午 2:00–6:00</p>
-              <p class="mt-1 text-gray-500 text-xs">可彈性調整，請先洽詢！</p>
-            </div>
-          </div>
-      
-          <!-- 大掃除方案卡片 -->
-          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
-            <h3 class="text-xl font-bold text-blue-700 mb-4">大掃除 / 客製化全清潔</h3>
-            <ul class="list-disc ml-5 space-y-1 text-gray-700 text-sm mb-4">
-              <li>免費到府場勘 + 客製化清潔建議</li>
-              <li>依需求安排深層清潔或特殊重點</li>
-              <li>整天作業時間（依評估結果安排）</li>
-            </ul>
-            <ol class="list-decimal ml-5 text-sm text-gray-600 space-y-1 mb-4">
-              <li>線上預約場勘</li>
-              <li>專人免費評估</li>
-              <li>報價並確認服務內容</li>
-              <li>安排清潔日</li>
-            </ol>
-            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded mb-3 text-sm">
-              <p class="font-semibold text-yellow-700">預約提醒：</p>
-              <p>服務前需支付 30% 訂金作為保留時段保障。</p>
-            </div>
-            <div class="bg-red-50 border-l-4 border-red-400 p-3 rounded text-sm">
-              <p class="font-semibold text-red-700">注意事項：</p>
-              <p>場勘後將以當下確認內容及報價為準，如需更動請務必提前告知。</p>
-            </div>
-          </div>
-        </div>
+    <div class="card">
+        <h3>大掃除／客製化清潔</h3>
+        <p>提供全方位深層清潔服務，包括：高處灰塵清除、頑固污漬處理、傢俱移動清潔、窗框與紗窗拆洗、冷氣機清洗等。我們會先進行場勘評估，依照您的特殊需求量身訂製清潔方案，特別適合春節前或年終大掃除。</p>
+        <p>費用：需場勘後報價（依清潔項目、面積大小及難度客製）</p>
+        <p>服務前須支付 30% 訂金</p>
+      </div>
+
+    <div class="card">
+        <h3>退租後清潔</h3>
+        <p>專為退租客戶設計的全面清潔服務，包括：牆面灰塵擦拭、廚房油垢清除、浴廁水垢清潔、地板打掃與拋光，確保房屋回復原始狀態，符合房東驗收標準。</p>
+        <p>費用：需場勘後報價（依據房屋坪數、髒污程度及特殊需求評估）</p>
       </div>
       
+      <div class="card">
+        <h3>裝潢後細清</h3>
+        <p>解決新裝修後的灰塵困擾，服務內容包括：建材粉塵清除、櫥櫃內外擦拭、五金件保養、玻璃窗戶清潔、地板除膠及打蠟，讓新家立即適合入住。</p>
+        <p>費用：需場勘後報價（依據裝潢類型、坪數大小及工程複雜度評估）</p>
+      </div>
+  </div>
 
-    <div id="about" class="section">
-        <h2>關於我們</h2>
+  <div class="section" id="comparison">
+    <h2>清潔前後對比</h2>
+    <div>
+      <img src="static/浴室一-水龍頭.jpg" class="compare-img" alt="清潔前">
+      <img src="static/浴室 (4).jpg" class="compare-img" alt="清潔後">
+      <img src="/static/浴室三-玻璃.jpg" class="compare-img" alt="清潔前後">
+      <img src="/static/浴室四-鏡子.jpg" class="compare-img"  alt="清潔前後">
+      <img src="static/廚房一-水龍頭.jpg" class="compare-img" alt="廚房前">
+      <img src="static/廚房二-抽油煙機.jpg" class="compare-img" alt="廚房後">
+    </div>
+  </div>
+
+  <div class="section" id="about">
+    <h2>關於我們</h2>
     <p>小浣熊居家清潔是一支來自台南的專業清潔團隊，致力於為每一個家庭與空間帶來煥然一新的感受。我們以誠信、細心和效率為服務核心，提供從日常清掃到裝潢後細清的多樣化清潔服務。</p>
 
     <p>品牌名稱的靈感來自可愛又愛乾淨的小浣熊——牠總是喜歡用小手手仔細洗東西，就像我們對待每一位客戶的空間一樣，用最認真、最細膩的態度，完成每一次清潔任務。</p>
@@ -166,69 +215,20 @@
     <p>選擇小浣熊，不只是選擇乾淨，而是選擇一種對生活品質的堅持。</p>
         <p>電話: 0921-702-599 劉先生</p>
         <p>聯絡時間: 周一到周日 08:30-20:00</p>
-        <!-- <img src="static/raccoon_team.jpg" width="300" alt="團隊照片"> -->
-    </div>
+  </div>
 
-    <div id="comparison" class="section">
-        <h2>清潔前後對比</h2>
-        <p>看看我們的清潔魔法前後差異！</p>
+  <div class="section faq" id="QA">
+    <h2>常見問題</h2>
+    <h4>Q1：有哪些服務項目？</h4>
+    <p>居家清潔、退租清掃、裝潢細清、大掃除、辦公空間整理。</p>
 
-        <div class="comparison-item">
-            <h3>浴室清潔</h3>
-            <img src="static/浴室一-水龍頭.jpg" alt="清潔前後" class="compare-img">
-            <img src="static/浴室二-馬桶.jpg" alt="清潔前後" class="compare-img">
-            <img src="static/浴室三-玻璃.jpg" alt="清潔前後" class="compare-img">
-            <img src="static/浴室四-鏡子.jpg" alt="清潔前後" class="compare-img">
-            <img src="static/浴室.jpg" alt="清潔前後" class="compare-img">
-            <img src="static/浴室 (2).jpg" alt="清潔前後" class="compare-img">
-            <img src="static/浴室 (3).jpg" alt="清潔前後" class="compare-img">
-            <img src="static/浴室 (4).jpg" alt="清潔前後" class="compare-img">
-        </div>
+    <h4>Q2：需要準備清潔工具嗎？</h4>
+    <p>不用，我們會自備工具與清潔劑。若有特殊需求可提前告知。</p>
 
-        <div class="comparison-item">
-            <h3>廚房油垢</h3>
-            <img src="static/廚房一-水龍頭.jpg" alt="清潔前" class="compare-img">
-            <img src="static/廚房二-抽油煙機.jpg" alt="清潔後" class="compare-img">
-        </div>
-    </div>
-
-    <div id="QA" class="section">
-        <h2>常見問題</h2>
+    <h4>Q3：預約與取消規定？</h4>
+    <p>清潔當日前 24 小時內取消，將酌收 NT$500。大掃除須預付 30% 訂金，3 週前可免費更改，越近更動訂金會部分扣除。</p>
     
-        <h4>Q1：你們提供哪些清潔服務？</h4>
-        <p>我們提供以下清潔服務：<br>
-
-            • 居家日常清潔<br>
-            • 租屋退租清潔<br>
-            • 裝潢後細清<br>
-            • 辦公室清潔<br>
-            • 居家大掃除<br>
-        </p>
-    
-        <h4>Q2：清潔費用是怎麼計算的 ?</h4>
-        <p>居家清潔方案1人4小時 NT$1900<br><br>
-
-            大掃除方案:<br>
-            我們提供 專人到現場免費場勘，並根據以下標準進行報價：<br>
-            
-             • 房屋的大小（坪數或房間數）<br>
-             • 清掃難易度（如油污頑垢、重點區域的深度清潔等）<br>
-             • 清潔所需人力（根據範圍與複雜度安排適當人手）<br>
-            
-            為了讓我們提供更準確的報價，請盡量詳細說明您的需求！<br>
-            例如：房間數量、清潔重點、是否有特定要求等。我們會根據您的情況提供專屬報價和安排。<br>
-        </p>
-    
-        <h4>Q3：居家清潔不包含的項目</h4>
-        <p>為保護您的財物及人員安全，清潔範圍中不包含以下項目：<br>
-
-            • 不開櫃擦拭、門窗清潔<br>
-            • 大型物品移動（如冰箱、洗衣機等）<br>
-           
-           若有額外需求，請提前與我們溝通，我們會視情況提供建議。<br>
-        </p>
-    
-        <h4>Q4：我需要提供清潔工具和清潔劑嗎？</h4>
+    <h4>Q4：我需要提供清潔工具和清潔劑嗎？</h4>
         <p>不用擔心，我們的清潔團隊會攜帶專業清潔工具與清潔劑，您不需要準備任何物品！<br>
             如果您有特別需求（例如使用自備清潔劑或特定品牌），請提前告知我們，我們將妥善安排。<br>
         </p>
@@ -250,14 +250,18 @@
         </p>
 
         <h4>Q6：預約和取消規定是什麼？</h4>
-        <p> • 居家清潔方案 取消或更改預約：請至少提前 24 小時 通知，否則可能會收取一定的手續費 NT$500。<br>
+        <p> • 居家清潔方案 取消或更改預約：請至少提前 24 小時 通知，否則可能會收取一定的手續費 $500。<br>
 
             • 大掃除服務 須提前收取 30% 訂金 以確保預約。<br>
           
-           若需更改預約時間：最晚請於 3 週前通知，可免費調整。<br>
-           • 2 週前更改時間，將扣除訂金 10% 作為調整費用。<br>
-           • 1 週前更改時間，將扣除訂金 20% 作為調整費用。<br>
-           • 1 週內取消或更改，訂金將不予退還，敬請見諒。<br>
+            若需要更動時間，以下是我們的調整規則：<br>
+
+            ✔️ 3週前通知 ➜ 免費更改<br>
+            ✔️ 2週前通知 ➜ 扣訂金 30% 做為調整費用<br>
+            ✔️ 1週前通知 ➜ 扣訂金 70%<br>
+            ❗ 7天內更改或取消 ➜ 訂金將無法退還，敬請見諒！<br>
+            
+            💡 小提醒：如果有部分訂金被扣除，尾款還是會照原報價結算喔，感謝您的理解與配合！<br>
         </p>
     
         <h4>Q7：我可以指定清潔人員嗎？</h4>
@@ -286,10 +290,30 @@
         <p>我們的居家清潔服務範圍是靈活可調的。為了確保您滿意首次清潔體驗，我們建議首次清潔時範圍選擇精簡一些。這樣如果還有剩餘時間，清潔人員可以與您討論並確定需要額外清潔的區域。
             我們期待為您提供優質、貼心的服務，讓您的居家環境煥然一新！<br>
         </p>
-    </div>
-    
+</div>
 
+<footer>
+    © 小浣熊居家清潔 Raccoon Cleaning ｜ 台南專業清潔服務
+    <div class="social-links">
+      <a href="https://www.instagram.com/raccoon_cleaning_?igsh=eG56NTJhYmx5eDQy&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/raccooncleaning99" target="_blank"><i class="fab fa-facebook-square"></i></a>
+    </div>
+  </footer>
+
+  <!-- LINE 浮動按鈕 -->
+<a href="https://lin.ee/OutrShx" class="floating-btn floating-line" target="_blank">
+    💬 LINE 聯絡
+  </a>
+  
+  <!-- IG 浮動按鈕 -->
+  <a href="https://www.instagram.com/raccoon_cleaning_?igsh=eG56NTJhYmx5eDQy&utm_source=qr" class="floating-btn floating-ig" target="_blank">
+    📸 IG 動態
+  </a>
+  
+  <!-- FB 浮動按鈕 -->
+  <a href="https://www.facebook.com/raccooncleaning99" class="floating-btn floating-fb" target="_blank">
+    👍 FB 粉專
+  </a>
+  
 </body>
 </html>
-
-
