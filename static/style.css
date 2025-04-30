@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f1d6;
+    text-align: center;
+    padding: 50px;
+}
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #d09664;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 讓圖片＋標題置中對齊 */
+    gap: 10px; /* 圖片與文字間距 */
+    margin-top: 20px;
+}
+
+.header-bar img {
+    width: 100px;
+    height: auto;
+}
+
+.header-bar h1 {
+    font-size: 35px;
+    margin: 0;
+}
+
+.comparison-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: 20px;
+}
+
+.comparison-item {
+    display: flex;
+    flex-wrap: wrap;              /* ✅ 讓圖片自動換行排列 */
+    justify-content: center;      /* ✅ 水平置中 */
+    gap: 20px;                    /* ✅ 每張圖片間距 */
+    max-width: 1200px;            /* 可調整最大寬度 */
+}
+
+.comparison-item h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.compare-img {
+    width: 300px;
+    height: 600px;
+    object-fit: contain;          /* ✅ 確保圖片不被裁切，等比例縮小 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;    /* 若圖片非滿框，留白時背景不突兀 */
+    transition: transform 0.3s ease;  /* 平滑放大動畫 */
+}
+.compare-img:hover {
+    transform: scale(1.4);  /* 滑鼠移上去放大 5% */
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
