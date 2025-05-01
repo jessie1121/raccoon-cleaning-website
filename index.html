@@ -298,6 +298,10 @@
     <div class="social-links">
       <a href="https://www.instagram.com/raccoon_cleaning_?igsh=eG56NTJhYmx5eDQy&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/raccooncleaning99" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <div id="page-views" style="text-align: center; margin-top: 20px;">
+  瀏覽次數：載入中...
+</div>
+
     </div>
   </footer>
 
@@ -315,6 +319,18 @@
   <a href="https://www.facebook.com/raccooncleaning99" class="floating-btn floating-fb" target="_blank">
     👍 FB 粉專
   </a>
+<script>
+  fetch('https://api.countapi.xyz/hit/raccoon-cleaning-website/visits')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('page-views').textContent = '瀏覽次數：' + data.value;
+    })
+    .catch(error => {
+      console.error('無法載入瀏覽次數：', error);
+      document.getElementById('page-views').textContent = '瀏覽次數：無法載入';
+    });
+</script>
+
   
 </body>
 </html>
