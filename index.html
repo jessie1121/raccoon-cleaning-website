@@ -829,111 +829,137 @@
 
 
 
-    /* ==================================================
-       清潔案例
-    ================================================== */
+  /* ==================================================
+   清潔案例
+================================================== */
 
-    .cases {
-      background: #faf9f7;
-    }
+.cases {
+  background: #faf9f7;
+}
+
+/* 電腦版：一排 3 張 */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* 案例卡片 */
+.case-card {
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: 22px;
+
+  background: white;
+
+  transition: 0.3s;
+}
+
+.case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+/* 圖片區
+   固定高度，但不裁切圖片 */
+.case-image {
+  width: 100%;
+  height: 240px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f4f1ed;
+
+  overflow: hidden;
+}
+
+/* 不管橫式、直式、正方形都完整顯示 */
+.case-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* 案例文字 */
+.case-content {
+  padding: 20px;
+}
+
+.case-tag {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  color: var(--brown);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.case-content h3 {
+  margin-bottom: 6px;
+
+  font-size: 19px;
+}
+
+.case-content p {
+  color: var(--text-soft);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 下方備註 */
+.case-disclaimer {
+  margin-top: 30px;
+
+  text-align: center;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+}
 
 
-    .case-grid {
-      display: grid;
+/* ==================================================
+   平板版：一排 2 張
+================================================== */
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+@media (max-width: 950px) {
 
-      gap: 28px;
-    }
+  .case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-
-    .case-card {
-      overflow: hidden;
-
-      border: 1px solid var(--line);
-      border-radius: 22px;
-
-      background: white;
-
-      transition: 0.3s;
-    }
+}
 
 
-    .case-card:hover {
-      transform: translateY(-4px);
+/* ==================================================
+   手機版：一排 1 張
+================================================== */
 
-      box-shadow: var(--shadow);
-    }
+@media (max-width: 700px) {
 
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 
-    /*
-      重要：
-      不設定固定高度
-      不設定 aspect-ratio
-      不使用 object-fit: cover
+  .case-image {
+    height: 200px;
+  }
 
-      所以圖片會完整呈現。
-    */
+  .case-content {
+    padding: 18px;
+  }
 
-    .case-image {
-      width: 100%;
-
-      background: #f4f1ed;
-    }
-
-
-    .case-image img {
-      width: 100%;
-      height: auto;
-
-      object-fit: contain;
-
-      display: block;
-    }
-
-
-    .case-content {
-      padding: 23px;
-    }
-
-
-    .case-tag {
-      display: inline-block;
-
-      margin-bottom: 8px;
-
-      color: var(--brown);
-
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-
-    .case-content h3 {
-      margin-bottom: 6px;
-
-      font-size: 20px;
-    }
-
-
-    .case-content p {
-      color: var(--text-soft);
-
-      font-size: 14px;
-    }
-
-
-    .case-disclaimer {
-      margin-top: 30px;
-
-      text-align: center;
-
-      color: var(--text-soft);
-
-      font-size: 13px;
-    }
-
+}
 
 
     /* ==================================================
