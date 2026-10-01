@@ -1,336 +1,2977 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <base href="/raccoon-cleaning-website/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>小浣熊居家清潔｜專業居家清潔</title>
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <title>小浣熊居家清潔｜台南專業居家清潔</title>
+
+  <meta
+    name="description"
+    content="小浣熊居家清潔提供台南居家清潔、大掃除、退租入住清潔、裝潢後細清等服務。免費場勘、客製化評估，讓您把時間留給更重要的人。"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
 
   <style>
-    body {
+    /* =========================
+       基本設定
+    ========================= */
+
+    :root {
+      --primary: #a77b53;
+      --primary-dark: #765338;
+      --primary-light: #d8b892;
+
+      --cream: #f8f3eb;
+      --cream-dark: #eee4d7;
+
+      --white: #ffffff;
+      --text: #3e332b;
+      --text-light: #776a61;
+
+      --line: #e7ddd3;
+
+      --line-green: #06c755;
+
+      --shadow:
+        0 12px 35px rgba(72, 51, 35, 0.10);
+
+      --radius: 22px;
+      --radius-small: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
-      background-color: #fdfaf5;
-      color: #3f2e1e;
+      padding: 0;
     }
-    header {
-      background-color: #bd9a75;
-      padding: 20px;
-      color: white;
-      text-align: center;
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
-    nav {
-      background-color: #fff8ec;
-      padding: 10px;
+
+    body {
+      font-family:
+        "Segoe UI",
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        sans-serif;
+
+      color: var(--text);
+      background: var(--white);
+
+      line-height: 1.75;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    section {
+      padding: 90px 24px;
+    }
+
+    .container {
+      width: min(1140px, 100%);
+      margin: auto;
+    }
+
+    .section-title {
       text-align: center;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      margin-bottom: 50px;
+    }
+
+    .section-title .tag {
+      display: inline-block;
+
+      color: var(--primary);
+      background: #f7eee4;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      padding: 7px 15px;
+      border-radius: 999px;
+
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.3;
+
+      color: var(--text);
+
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: auto;
+
+      color: var(--text-light);
+      font-size: 17px;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
+
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
-    nav a {
-      color: #3f2e1e;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      background: url('static/封面照片.jpg') center/cover no-repeat;
-      height: 300px;
+
+    .nav-inner {
+      min-height: 78px;
+
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-      font-size: 32px;
-      font-weight: bold;
+      justify-content: space-between;
+
+      gap: 30px;
     }
-    .section {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      flex-shrink: 0;
     }
-    .card {
-      border: 1px solid #eee;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      background-color: #fff;
-    }
-    .card h3 {
-      margin-top: 0;
-      color: #bd9a75;
-    }
-    .compare-img {
-      width: 280px;
-      height: auto;
-      margin: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
       object-fit: cover;
-      transition: transform 0.3s ease;
     }
-    .compare-img:hover {
-      transform: scale(1.2);
+
+    .brand-text strong {
+      display: block;
+
+      font-size: 21px;
+      line-height: 1.3;
+
+      color: var(--primary-dark);
     }
-    .faq h4 {
-      color: #8b5e3c;
-      margin-top: 20px;
+
+    .brand-text span {
+      font-size: 12px;
+      color: var(--text-light);
     }
-    footer {
-      background-color: #bd9a75;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-line-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      background: var(--line-green);
+      color: white !important;
+
+      padding: 11px 18px;
+      border-radius: 999px;
+
+      transition: 0.25s;
+    }
+
+    .nav-line-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(6, 199, 85, 0.25);
+    }
+
+    .menu-toggle {
+      display: none;
+
+      border: none;
+      background: transparent;
+
+      font-size: 26px;
+      color: var(--primary-dark);
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+
+      min-height: 650px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(39, 29, 22, 0.75) 0%,
+          rgba(39, 29, 22, 0.52) 45%,
+          rgba(39, 29, 22, 0.16) 100%
+        ),
+        url("static/封面照片.jpg")
+        center center / cover no-repeat;
+
       color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
     }
-    .nav-title {
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-weight: bold;
-      font-size: 30px;
-      color: white;
-      vertical-align: middle;
-    }
-    .floating-line {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #00c300;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .floating-btn {
-  position: fixed;
-  right: 20px;
-  padding: 10px 15px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
 
-.floating-line { bottom: 20px; background-color: #00c300; }
-.floating-ig   { bottom: 70px; background-color: #e4405f; }
-.floating-fb   { bottom: 120px; background-color: #1877f2; }
+      background: rgba(255, 255, 255, 0.15);
+
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+
+      padding: 8px 16px;
+
+      border-radius: 999px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.15;
+
+      margin-bottom: 22px;
+
+      letter-spacing: 1px;
+    }
+
+    .hero h1 span {
+      color: #f2d9ba;
+    }
+
+    .hero-description {
+      max-width: 620px;
+
+      font-size: 19px;
+
+      color: rgba(255, 255, 255, 0.9);
+
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 14px;
+
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      min-height: 52px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      padding: 12px 24px;
+
+      border-radius: 999px;
+
+      font-weight: 700;
+
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--line-green);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 12px 25px rgba(6, 199, 85, 0.3);
+    }
+
+    .btn-outline {
+      color: white;
+
+      border: 1px solid rgba(255, 255, 255, 0.6);
+
+      background: rgba(255, 255, 255, 0.08);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 20px 28px;
+
+      font-size: 14px;
+
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-features span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-features i {
+      color: #f2d9ba;
+    }
+
+
+    /* =========================
+       WHY US
+    ========================= */
+
+    .why-us {
+      background: var(--cream);
+    }
+
+    .feature-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: white;
+
+      padding: 32px 24px;
+
+      text-align: center;
+
+      border-radius: var(--radius);
+
+      box-shadow: 0 8px 25px rgba(86, 66, 49, 0.06);
+
+      border: 1px solid rgba(167, 123, 83, 0.08);
+
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 62px;
+      height: 62px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 auto 20px;
+
+      border-radius: 18px;
+
+      background: #f5eadf;
+
+      color: var(--primary);
+
+      font-size: 26px;
+    }
+
+    .feature-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 15px;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 24px;
+    }
+
+    .service-card {
+      position: relative;
+
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+
+      padding: 32px;
+
+      background: white;
+
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+
+      border-color: transparent;
+    }
+
+    .service-top {
+      display: flex;
+      align-items: flex-start;
+
+      gap: 18px;
+
+      margin-bottom: 20px;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 16px;
+
+      background: var(--cream);
+
+      color: var(--primary);
+
+      font-size: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    .service-subtitle {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .service-description {
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      list-style: none;
+
+      display: grid;
+      gap: 8px;
+
+      margin-bottom: 20px;
+
+      color: #5c5048;
+    }
+
+    .service-list li::before {
+      content: "✓";
+
+      margin-right: 10px;
+
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .service-price {
+      background: var(--cream);
+
+      border-radius: var(--radius-small);
+
+      padding: 14px 18px;
+
+      font-weight: 600;
+    }
+
+    .service-price strong {
+      color: var(--primary-dark);
+    }
+
+
+    /* =========================
+       CASES
+    ========================= */
+
+    .cases {
+      background: #faf8f5;
+    }
+
+    .case-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 24px;
+    }
+
+    .case-card {
+      overflow: hidden;
+
+      background: white;
+
+      border-radius: var(--radius);
+
+      box-shadow: 0 8px 30px rgba(60, 44, 32, 0.08);
+
+      transition: 0.3s;
+    }
+
+    .case-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .case-image {
+      position: relative;
+
+      aspect-ratio: 4 / 3;
+
+      overflow: hidden;
+
+      background: #eee;
+    }
+
+    .case-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform 0.5s;
+    }
+
+    .case-card:hover .case-image img {
+      transform: scale(1.05);
+    }
+
+    .case-label {
+      position: absolute;
+
+      left: 15px;
+      bottom: 15px;
+
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+
+      color: var(--primary-dark);
+
+      padding: 6px 12px;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .case-content {
+      padding: 24px;
+    }
+
+    .case-content h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .case-content p {
+      color: var(--text-light);
+      font-size: 15px;
+    }
+
+    .case-note {
+      text-align: center;
+
+      color: var(--text-light);
+
+      margin-top: 28px;
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+      gap: 18px;
+    }
+
+    .process-card {
+      position: relative;
+
+      text-align: center;
+
+      padding: 28px 18px;
+    }
+
+    .process-number {
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 auto 17px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+      color: white;
+
+      font-weight: bold;
+
+      box-shadow:
+        0 8px 18px rgba(167, 123, 83, 0.25);
+    }
+
+    .process-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .process-card p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .process-card:not(:last-child)::after {
+      content: "→";
+
+      position: absolute;
+
+      top: 42px;
+      right: -18px;
+
+      color: var(--primary-light);
+
+      font-size: 26px;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: var(--cream);
+    }
+
+    .about-layout {
+      display: grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      gap: 60px;
+
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+
+      aspect-ratio: 1 / 1;
+
+      object-fit: cover;
+
+      border-radius: 30px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .about-badge {
+      position: absolute;
+
+      bottom: -20px;
+      right: -20px;
+
+      width: 155px;
+      height: 155px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+
+      color: white;
+
+      box-shadow: var(--shadow);
+    }
+
+    .about-badge i {
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    .about-badge strong {
+      font-size: 16px;
+    }
+
+    .about-content .tag {
+      display: inline-block;
+
+      color: var(--primary);
+
+      font-size: 14px;
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+    .about-content h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.35;
+
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: var(--text-light);
+
+      margin-bottom: 16px;
+    }
+
+    .about-points {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 12px;
+
+      margin-top: 26px;
+    }
+
+    .about-point {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      font-weight: 600;
+    }
+
+    .about-point i {
+      color: var(--primary);
+    }
+
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq-wrapper {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq-item {
+      background: white;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
+
+      margin-bottom: 14px;
+
+      overflow: hidden;
+
+      transition: 0.25s;
+    }
+
+    .faq-item.active {
+      box-shadow:
+        0 8px 24px rgba(60, 44, 32, 0.06);
+    }
+
+    .faq-question {
+      width: 100%;
+
+      border: none;
+      background: transparent;
+
+      padding: 20px 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      text-align: left;
+
+      cursor: pointer;
+
+      color: var(--text);
+
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .faq-question i {
+      color: var(--primary);
+
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+
+      overflow: hidden;
+
+      transition:
+        max-height 0.35s ease,
+        padding 0.35s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 22px 22px;
+
+      color: var(--text-light);
+    }
+
+    .faq-answer-inner ul {
+      padding-left: 22px;
+      margin-top: 8px;
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta-section {
+      padding-top: 40px;
+    }
+
+    .cta-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 65px 40px;
+
+      border-radius: 32px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #856345,
+          #b38a64
+        );
+
+      color: white;
+
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.07);
+
+      top: -170px;
+      right: -70px;
+    }
+
+    .cta-box h2 {
+      position: relative;
+
+      font-size: clamp(30px, 4vw, 42px);
+
+      margin-bottom: 15px;
+    }
+
+    .cta-box p {
+      position: relative;
+
+      max-width: 660px;
+      margin: 0 auto 28px;
+
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .cta-buttons {
+      position: relative;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 14px;
+    }
+
+    .cta-phone {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 90px;
+
+      background: #32271f;
+
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .footer-main {
+      display: grid;
+
+      grid-template-columns:
+        1.4fr 1fr 1fr;
+
+      gap: 50px;
+
+      padding: 60px 24px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      margin-bottom: 18px;
+    }
+
+    .footer-brand img {
+      width: 55px;
+      height: 55px;
+
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .footer-brand strong {
+      display: block;
+
+      color: white;
+
+      font-size: 21px;
+    }
+
+    .footer-description {
+      max-width: 420px;
+
+      font-size: 15px;
+
+      margin-bottom: 20px;
+    }
+
+    .footer-title {
+      color: white;
+
+      font-size: 16px;
+
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-contact p {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .footer-contact i {
+      width: 22px;
+      color: var(--primary-light);
+    }
 
     .social-links {
-      margin-top: 10px;
+      display: flex;
+
+      gap: 12px;
+
+      margin-top: 20px;
     }
+
     .social-links a {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.08);
+
       color: white;
-      margin: 0 10px;
-      text-decoration: none;
+
       font-size: 18px;
+
+      transition: 0.25s;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      text-align: center;
+
+      padding: 20px 24px;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       FLOATING LINE
+    ========================= */
+
+    .floating-line {
+      position: fixed;
+
+      right: 24px;
+      bottom: 24px;
+
+      z-index: 999;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      background: var(--line-green);
+      color: white;
+
+      padding: 13px 19px;
+
+      border-radius: 999px;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 7px 25px rgba(0, 0, 0, 0.18);
+
+      transition: 0.25s;
+    }
+
+    .floating-line:hover {
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 950px) {
+
+      .nav-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        left: 0;
+        top: 78px;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+
+        gap: 0;
+
+        background: white;
+
+        padding: 12px 20px 22px;
+
+        border-bottom:
+          1px solid rgba(0, 0, 0, 0.06);
+
+        box-shadow:
+          0 14px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links > a {
+        width: 100%;
+
+        padding: 13px 0;
+
+        border-bottom:
+          1px solid #f0ece7;
+      }
+
+      .nav-line-btn {
+        width: auto !important;
+
+        margin-top: 12px;
+
+        justify-content: center;
+
+        border: none !important;
+      }
+
+      .hero {
+        min-height: 600px;
+
+        background-position: 60% center;
+      }
+
+      .feature-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .case-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .process-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .process-card:not(:last-child)::after {
+        display: none;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+      }
+
+      .about-image {
+        max-width: 600px;
+
+        margin: auto;
+      }
+
+      .footer-main {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .footer-main > div:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+
+    @media (max-width: 700px) {
+
+      section {
+        padding: 65px 20px;
+      }
+
+      .brand-text strong {
+        font-size: 18px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .brand img {
+        width: 45px;
+        height: 45px;
+      }
+
+      .hero {
+        min-height: 620px;
+
+        padding: 70px 20px;
+
+        background:
+          linear-gradient(
+            90deg,
+            rgba(39, 29, 22, 0.80),
+            rgba(39, 29, 22, 0.54)
+          ),
+          url("static/封面照片.jpg")
+          60% center / cover no-repeat;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero-description {
+        font-size: 17px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .feature-grid,
+      .services-grid,
+      .case-grid,
+      .process-grid,
+      .footer-main {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 26px 22px;
+      }
+
+      .process-card {
+        padding: 18px;
+      }
+
+      .about-badge {
+        width: 125px;
+        height: 125px;
+
+        right: -5px;
+        bottom: -30px;
+      }
+
+      .about-points {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 50px 22px;
+
+        border-radius: 24px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-buttons .btn {
+        width: 100%;
+      }
+
+      .footer-main > div:first-child {
+        grid-column: auto;
+      }
+
+      .floating-line {
+        right: 16px;
+        bottom: 16px;
+
+        padding: 12px 16px;
+      }
     }
   </style>
 </head>
+
+
 <body>
-  <header>
-    <span class="nav-title">
-      <img src="static/logo.jpg" width="50" alt="Logo">
-      小浣熊居家清潔
-    </span> 
-    <p>台南專業清潔服務｜誠信、安全、效率、細心</p>
-  </header>
 
-  <nav>
-    <a href="#home">首頁</a>
-    <a href="#services">服務項目</a>
-    <a href="#comparison">清潔對比</a>
-    <a href="#about">關於我們</a>
-    <a href="#QA">常見問題</a>
-    <a href="https://lin.ee/OutrShx">LINE聯絡</a>
-  </nav>
 
-  <div class="hero" id="home">
-    <!-- 小浣熊讓您回到乾淨的家 -->
-  </div>
+<!-- =========================
+     導覽列
+========================= -->
 
-  <div class="section" id="services">
-    <h2>服務項目(場勘都是免費的喔~)</h2>
-    <div class="card">
-      <h3>標準清潔方案（4 小時）</h3>
-      <p>客廳、廚房、浴廁、地板與外部櫃體表面清潔。需於預約前確認重點清潔區域，當日依時數內盡力完成。</p>
-      <p>費用：NT$1900／次</p>
-      <p>可預約時段：上午 8:30–12:30、下午 2:00–6:00</p>
+<nav class="navbar">
+
+  <div class="container nav-inner">
+
+    <a href="#home" class="brand">
+
+      <img
+        src="static/logo.jpg"
+        alt="小浣熊居家清潔 Logo"
+      >
+
+      <div class="brand-text">
+        <strong>小浣熊居家清潔</strong>
+        <span>Raccoon Cleaning</span>
+      </div>
+
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="開啟選單"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+
+    <div class="nav-links" id="navLinks">
+
+      <a href="#services">
+        服務項目
+      </a>
+
+      <a href="#cases">
+        清潔案例
+      </a>
+
+      <a href="#process">
+        服務流程
+      </a>
+
+      <a href="#about">
+        關於我們
+      </a>
+
+      <a href="#faq">
+        常見問題
+      </a>
+
+      <a
+        href="https://lin.ee/OutrShx"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-line-btn"
+      >
+        <i class="fa-brands fa-line"></i>
+        LINE 預約
+      </a>
+
     </div>
 
-    <div class="card">
-        <h3>大掃除／客製化清潔</h3>
-        <p>提供全方位深層清潔服務，包括：高處灰塵清除、頑固污漬處理、傢俱移動清潔、窗框與紗窗拆洗、冷氣機清洗等。我們會先進行場勘評估，依照您的特殊需求量身訂製清潔方案，特別適合春節前或年終大掃除。</p>
-        <p>費用：需場勘後報價（依清潔項目、面積大小及難度客製）</p>
-        <p>服務前須支付 30% 訂金</p>
-      </div>
-
-    <div class="card">
-        <h3>退租/入住清潔</h3>
-        <p>專為租屋客戶設計的全面清潔服務，包括：牆面灰塵擦拭、廚房油垢清除、浴廁水垢清潔、地板打掃與拋光，確保房屋回復原始狀態，符合房東驗收標準。</p>
-        <p>費用：需場勘後報價（依據房屋坪數、髒污程度及特殊需求評估）</p>
-      </div>
-      
-      <div class="card">
-        <h3>裝潢後細清</h3>
-        <p>解決新裝修後的灰塵困擾，服務內容包括：建材粉塵清除、櫥櫃內外擦拭、五金件保養、玻璃窗戶清潔、地板除膠及打蠟，讓新家立即適合入住。</p>
-        <p>費用：需場勘後報價（依據裝潢類型、坪數大小及工程複雜度評估）</p>
-      </div>
   </div>
 
-  <div class="section" id="comparison">
-    <h2>清潔前後對比</h2>
-    <div>
-      <img src="static/浴室一-水龍頭.jpg" class="compare-img" alt="清潔前">
-      <img src="static/浴室 (4).jpg" class="compare-img" alt="清潔後">
-      <img src="static/浴室三-玻璃.jpg" class="compare-img" alt="清潔前後">
-      <img src="static/浴室四-鏡子.jpg" class="compare-img"  alt="清潔前後">
-      <img src="static/廚房一-水龍頭.jpg" class="compare-img" alt="廚房前">
-      <img src="static/廚房二-抽油煙機.jpg" class="compare-img" alt="廚房後">
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero" id="home">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <i class="fa-solid fa-location-dot"></i>
+        台南在地專業清潔服務
+      </div>
+
+      <h1>
+        把時間留給生活，<br>
+        <span>把乾淨交給小浣熊。</span>
+      </h1>
+
+      <p class="hero-description">
+        從日常居家清潔、大掃除，到退租入住與裝潢後細清，
+        依照您的空間與需求規劃適合的清潔方式，
+        用細心與專業，讓回家成為真正放鬆的事。
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a
+          href="https://lin.ee/OutrShx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <i class="fa-brands fa-line"></i>
+          LINE 免費諮詢
+        </a>
+
+
+        <a
+          href="#services"
+          class="btn btn-outline"
+        >
+          查看服務項目
+          <i class="fa-solid fa-arrow-down"></i>
+        </a>
+
+      </div>
+
+
+      <div class="hero-features">
+
+        <span>
+          <i class="fa-solid fa-circle-check"></i>
+          免費場勘評估
+        </span>
+
+        <span>
+          <i class="fa-solid fa-circle-check"></i>
+          清潔工具自備
+        </span>
+
+        <span>
+          <i class="fa-solid fa-circle-check"></i>
+          客製化清潔
+        </span>
+
+        <span>
+          <i class="fa-solid fa-circle-check"></i>
+          台南在地服務
+        </span>
+
+      </div>
+
     </div>
+
   </div>
 
-  <div class="section" id="about">
-    <h2>關於我們</h2>
-    <p>小浣熊居家清潔是一支來自台南的專業清潔團隊，致力於為每一個家庭與空間帶來煥然一新的感受。我們以誠信、細心和效率為服務核心，提供從日常清掃到裝潢後細清的多樣化清潔服務。</p>
+</header>
 
-    <p>品牌名稱的靈感來自可愛又愛乾淨的小浣熊——牠總是喜歡用小手手仔細洗東西，就像我們對待每一位客戶的空間一樣，用最認真、最細膩的態度，完成每一次清潔任務。</p>
 
-    <p>我們了解每一位客戶對家的期待，因此不僅注重清潔成果，更重視溝通與細節。我們的清潔人員皆經過培訓，使用安心清潔用品，並提供客製化清潔方案，讓每一次服務都安心又放心。</p>
 
-    <p>選擇小浣熊，不只是選擇乾淨，而是選擇一種對生活品質的堅持。</p>
-        <p>電話: 0921-702-599 劉先生</p>
-        <p>聯絡時間: 周一到周日 08:30-20:00</p>
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="why-us">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span class="tag">
+        為什麼選擇我們
+      </span>
+
+      <h2>
+        不只是打掃，而是把生活空間照顧好
+      </h2>
+
+      <p>
+        每個家的生活方式都不同，我們從需求確認開始，
+        針對真正需要清潔的地方安排服務，
+        不讓您的時間和預算花在不必要的項目上。
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+
+        <h3>充分溝通</h3>
+
+        <p>
+          清潔前先確認重點區域與需求，
+          讓服務內容更符合您的期待。
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          <i class="fa-solid fa-spray-can-sparkles"></i>
+        </div>
+
+        <h3>工具自備</h3>
+
+        <p>
+          清潔人員攜帶所需工具與清潔用品，
+          不必另外準備。
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+
+        <h3>客製方案</h3>
+
+        <p>
+          根據坪數、髒污程度與需求，
+          安排更適合的清潔內容。
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          <i class="fa-solid fa-house-circle-check"></i>
+        </div>
+
+        <h3>細節驗收</h3>
+
+        <p>
+          完成後可一起確認清潔成果，
+          有需要調整的地方即時溝通。
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="section faq" id="QA">
-    <h2>常見問題</h2>
-    <h4>Q1：有哪些服務項目？</h4>
-    <p>居家清潔、退租入住清掃、裝潢細清、大掃除。</p>
+</section>
 
-    <h4>Q2：需要準備清潔工具嗎？</h4>
-    <p>不用，我們會自備工具與清潔劑。若有特殊需求可提前告知。</p>
 
-    <h4>Q3：預約與取消規定？</h4>
-    <p>居家清潔方案 清潔當日前 24 小時內取消，將酌收 NT$500。大掃除須預付 30% 訂金，3 週前可免費更改，越近更動訂金會部分扣除。</p>
-    
-    <h4>Q4：我需要提供清潔工具和清潔劑嗎？</h4>
-        <p>不用擔心，我們的清潔團隊會攜帶專業清潔工具與清潔劑，您不需要準備任何物品！<br>
-            如果您有特別需求（例如使用自備清潔劑或特定品牌），請提前告知我們，我們將妥善安排。<br>
-        </p>
-    
-        <h4>Q5：你們的工作時間是什麼時候？</h4>
-        <p>我們的工作時間為：<br>
 
-            • 星期一至星期日：上午 8:30 - 傍晚 6:00<br>
-           我們提供兩個清潔時段供您選擇：<br>
-           
-            • 上午 8:30<br>
-            • 下午 2:00<br>
-           如需調整時間，可與我們溝通協調！<br>
-           
-           為了確保您能預約到理想的時段，我們建議您 至少提前兩到三個禮拜 預約！<br>
-           越靠近需要服務的日期，時段可能會已滿，建議盡早安排！<br>
-           
-           如果臨時需要服務，我們會盡力協調，但無法保證一定有空檔哦。<br>
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span class="tag">
+        Cleaning Services
+      </span>
+
+      <h2>
+        清潔服務項目
+      </h2>
+
+      <p>
+        從固定時數的日常清潔到需要現場評估的深度清潔，
+        都可以依照您的空間狀況安排。
+        場勘評估免費，歡迎先透過 LINE 詢問。
+      </p>
+
+    </div>
+
+
+
+    <div class="services-grid">
+
+
+      <!-- 標準清潔 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <div class="service-icon">
+            <i class="fa-solid fa-house"></i>
+          </div>
+
+          <div>
+            <h3>標準居家清潔</h3>
+            <div class="service-subtitle">
+              適合定期維持居家整潔
+            </div>
+          </div>
+
+        </div>
+
+
+        <p class="service-description">
+          以 4 小時為一個服務時段，
+          可依照當天最需要處理的區域安排清潔順序。
+          建議預約前先告訴我們您的清潔重點。
         </p>
 
-        <h4>Q6：預約和取消規定是什麼？</h4>
-        <p> • 居家清潔方案 取消或更改預約：請至少提前 24 小時 通知，否則可能會收取一定的手續費 $500。<br>
 
-            • 大掃除服務 須提前收取 30% 訂金 以確保預約。<br>
-          
-            若需要更動時間，以下是我們的調整規則：<br>
+        <ul class="service-list">
+          <li>客廳與公共空間</li>
+          <li>廚房表面清潔</li>
+          <li>浴室與廁所</li>
+          <li>地板清潔</li>
+          <li>外部櫃體與家具表面</li>
+        </ul>
 
-            ✔️ 3週前通知 ➜ 免費更改<br>
-            ✔️ 2週前通知 ➜ 扣訂金 30% 做為調整費用<br>
-            ✔️ 1週前通知 ➜ 扣訂金 70%<br>
-            ❗ 7天內更改或取消 ➜ 訂金將無法退還，敬請見諒！<br>
-            
-            💡 小提醒：如果有部分訂金被扣除，尾款還是會照原報價結算喔，感謝您的理解與配合！<br>
-        </p>
-    
-        <h4>Q7：我可以指定清潔人員嗎？</h4>
-        <p>您可以提出需求，我們將盡力安排您指定的清潔人員，但可能會因排班狀況有所調整，敬請見諒！<br>
-        </p>
-    
-        <h4>Q8：清潔頻率建議</h4>
-        <p>根據您的生活習慣與需求，我們建議以下清潔頻率：<br>
 
-            • 每週清潔一次：<br>
-           適合對居家環境要求高的家庭，讓家裡隨時保持乾淨整潔。<br>
-            • 每兩週清潔一次：<br>
-           適合工作忙碌、日常清潔時間有限的家庭，維持居家基礎整潔。<br>
-            • 每月清潔一次：<br>
-           適合居住人口少、作息簡單的家庭，或針對廚房、浴室等特定區域定期清潔的需求。<br>
-           
-           我們也可以依您的需求，靈活安排清潔頻率，讓您住得更舒適！<br>
+        <div class="service-price">
+          <strong>NT$1,900／4 小時</strong><br>
+          上午 8:30–12:30 ／ 下午 2:00–6:00
+        </div>
+
+      </article>
+
+
+
+      <!-- 大掃除 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <div class="service-icon">
+            <i class="fa-solid fa-broom-ball"></i>
+          </div>
+
+          <div>
+            <h3>大掃除／深度清潔</h3>
+            <div class="service-subtitle">
+              適合長期累積髒污與全面整理
+            </div>
+          </div>
+
+        </div>
+
+
+        <p class="service-description">
+          針對一般清潔較難處理的區域進行更完整的清潔，
+          適合年終、春節前或一段時間沒有徹底整理的空間。
         </p>
-    
-        <h4>Q9：清潔人員打掃時我要在家嗎？</h4>
-        <p>不一定！但我們建議您 第一次合作時最好在家，這樣可以清楚告知清潔人員您的生活習慣、物品擺放位置，以及清潔範圍與時間。
-            清潔開始後，您可以選擇外出，完成後我們會致電通知您進行驗收。<br>
+
+
+        <ul class="service-list">
+          <li>高處與清潔死角</li>
+          <li>頑固油垢與污漬</li>
+          <li>窗框與紗窗</li>
+          <li>家具移動後方區域</li>
+          <li>依需求安排其他深度項目</li>
+        </ul>
+
+
+        <div class="service-price">
+          <strong>免費場勘後報價</strong><br>
+          依坪數、髒污程度與清潔項目評估
+        </div>
+
+      </article>
+
+
+
+      <!-- 退租入住 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <div class="service-icon">
+            <i class="fa-solid fa-key"></i>
+          </div>
+
+          <div>
+            <h3>退租／入住清潔</h3>
+            <div class="service-subtitle">
+              搬家前後更省力
+            </div>
+          </div>
+
+        </div>
+
+
+        <p class="service-description">
+          搬家已經夠忙了，
+          讓我們協助處理空屋或租屋空間的基礎與重點清潔，
+          降低搬入或交屋前的整理負擔。
         </p>
-    
-        <h4>Q10：打掃沒在預定的時數內完成怎麼辦？</h4>
-        <p>我們的居家清潔服務範圍是靈活可調的。為了確保您滿意首次清潔體驗，我們建議首次清潔時範圍選擇精簡一些。這樣如果還有剩餘時間，清潔人員可以與您討論並確定需要額外清潔的區域。
-            我們期待為您提供優質、貼心的服務，讓您的居家環境煥然一新！<br>
+
+
+        <ul class="service-list">
+          <li>廚房油污清潔</li>
+          <li>浴室水垢清潔</li>
+          <li>櫃體與表面擦拭</li>
+          <li>地板清潔</li>
+          <li>其他依現場狀況評估</li>
+        </ul>
+
+
+        <div class="service-price">
+          <strong>免費場勘後報價</strong><br>
+          依房屋坪數與實際髒污程度評估
+        </div>
+
+      </article>
+
+
+
+      <!-- 裝潢後 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <div class="service-icon">
+            <i class="fa-solid fa-hammer"></i>
+          </div>
+
+          <div>
+            <h3>裝潢後細清</h3>
+            <div class="service-subtitle">
+              新家入住前的重要最後一步
+            </div>
+          </div>
+
+        </div>
+
+
+        <p class="service-description">
+          針對裝潢施工後容易留下的粉塵與細微髒污進行清潔，
+          讓完成裝修的空間更接近安心入住的狀態。
         </p>
-</div>
+
+
+        <ul class="service-list">
+          <li>施工粉塵清除</li>
+          <li>櫥櫃內外擦拭</li>
+          <li>玻璃與窗戶清潔</li>
+          <li>五金表面整理</li>
+          <li>地板細部清潔</li>
+        </ul>
+
+
+        <div class="service-price">
+          <strong>免費場勘後報價</strong><br>
+          依裝潢內容、坪數與施工狀況評估
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CASES
+========================= -->
+
+<section class="cases" id="cases">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span class="tag">
+        Before & After
+      </span>
+
+      <h2>
+        清潔成果案例
+      </h2>
+
+      <p>
+        有些髒污不是看不見，而是每天看久了就習慣了。
+        小地方清乾淨，整個空間的感覺就會不一樣。
+      </p>
+
+    </div>
+
+
+    <div class="case-grid">
+
+
+      <article class="case-card">
+
+        <div class="case-image">
+
+          <img
+            src="static/浴室一-水龍頭.jpg"
+            alt="浴室水龍頭清潔案例"
+            loading="lazy"
+          >
+
+          <span class="case-label">
+            浴室清潔
+          </span>
+
+        </div>
+
+        <div class="case-content">
+
+          <h3>
+            水龍頭水垢清潔
+          </h3>
+
+          <p>
+            針對長期接觸水氣後留下的水垢與污漬，
+            讓五金表面恢復原有的乾淨質感。
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="case-card">
+
+        <div class="case-image">
+
+          <img
+            src="static/浴室三-玻璃.jpg"
+            alt="浴室玻璃清潔案例"
+            loading="lazy"
+          >
+
+          <span class="case-label">
+            浴室清潔
+          </span>
+
+        </div>
+
+        <div class="case-content">
+
+          <h3>
+            玻璃與皂垢處理
+          </h3>
+
+          <p>
+            浴室玻璃最容易因水氣與清潔用品留下白霧，
+            深度處理後視覺更清爽。
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="case-card">
+
+        <div class="case-image">
+
+          <img
+            src="static/廚房二-抽油煙機.jpg"
+            alt="抽油煙機清潔案例"
+            loading="lazy"
+          >
+
+          <span class="case-label">
+            廚房清潔
+          </span>
+
+        </div>
+
+        <div class="case-content">
+
+          <h3>
+            廚房油污清潔
+          </h3>
+
+          <p>
+            針對容易黏附於廚房表面的油污進行處理，
+            減少摸起來油膩黏手的感覺。
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="case-card">
+
+        <div class="case-image">
+
+          <img
+            src="static/浴室四-鏡子.jpg"
+            alt="浴室鏡面清潔案例"
+            loading="lazy"
+          >
+
+          <span class="case-label">
+            浴室清潔
+          </span>
+
+        </div>
+
+        <div class="case-content">
+
+          <h3>
+            鏡面清潔
+          </h3>
+
+          <p>
+            處理水痕與日常使用留下的髒污，
+            讓鏡面重新恢復清晰乾淨。
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="case-card">
+
+        <div class="case-image">
+
+          <img
+            src="static/廚房一-水龍頭.jpg"
+            alt="廚房水龍頭清潔案例"
+            loading="lazy"
+          >
+
+          <span class="case-label">
+            廚房清潔
+          </span>
+
+        </div>
+
+        <div class="case-content">
+
+          <h3>
+            廚房五金清潔
+          </h3>
+
+          <p>
+            水槽周邊常同時累積水垢與油污，
+            細節清潔後整體廚房會更加明亮。
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="case-card">
+
+        <div class="case-image">
+
+          <img
+            src="static/浴室 (4).jpg"
+            alt="浴室深度清潔案例"
+            loading="lazy"
+          >
+
+          <span class="case-label">
+            深度清潔
+          </span>
+
+        </div>
+
+        <div class="case-content">
+
+          <h3>
+            浴室整體清潔
+          </h3>
+
+          <p>
+            從檯面、五金到容易忽略的小細節，
+            一次把浴室重新整理乾淨。
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <p class="case-note">
+      ※ 實際清潔成果會依材質、使用年限與污垢形成狀況有所不同。
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section id="process">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span class="tag">
+        Service Process
+      </span>
+
+      <h2>
+        預約其實很簡單
+      </h2>
+
+      <p>
+        第一次找居家清潔不用擔心，
+        從詢問到完成服務，每個階段我們都會先與您確認。
+      </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+      <div class="process-card">
+
+        <div class="process-number">
+          1
+        </div>
+
+        <h3>
+          LINE 詢問
+        </h3>
+
+        <p>
+          告訴我們希望清潔的空間、日期與需求。
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">
+          2
+        </div>
+
+        <h3>
+          了解需求
+        </h3>
+
+        <p>
+          透過照片或現場了解髒污狀況與清潔重點。
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">
+          3
+        </div>
+
+        <h3>
+          確認報價
+        </h3>
+
+        <p>
+          依服務內容確認費用與預約時間。
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">
+          4
+        </div>
+
+        <h3>
+          到府清潔
+        </h3>
+
+        <p>
+          清潔人員依約定時間到府完成服務。
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">
+          5
+        </div>
+
+        <h3>
+          完成驗收
+        </h3>
+
+        <p>
+          完成後確認成果，有需要再即時溝通。
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+  <div class="container about-layout">
+
+
+    <div class="about-image">
+
+      <!--
+        如果之後有更適合的團隊照、工作照，
+        建議把這張換掉。
+      -->
+
+      <img
+        src="static/封面照片.jpg"
+        alt="小浣熊居家清潔"
+        loading="lazy"
+      >
+
+      <div class="about-badge">
+
+        <i class="fa-solid fa-heart"></i>
+
+        <strong>
+          誠信・細心<br>
+          安心服務
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="about-content">
+
+      <span class="tag">
+        ABOUT RACCOON CLEANING
+      </span>
+
+      <h2>
+        我們想做的，
+        是讓「回家」這件事更舒服。
+      </h2>
+
+
+      <p>
+        小浣熊居家清潔是一支來自台南的清潔團隊。
+        品牌名稱來自總是喜歡用小手仔細清洗東西的小浣熊，
+        也代表著我們希望用認真、細心的方式，
+        對待每一次到府服務。
+      </p>
+
+
+      <p>
+        我們知道每個家庭的生活方式、環境狀況和需求都不同，
+        所以比起套用完全相同的清潔方式，
+        我們更重視服務前的溝通，以及真正需要被處理的細節。
+      </p>
+
+
+      <p>
+        您不用把難得的休息日全部留給打掃。
+        把整理空間的事情交給我們，
+        把時間留給家人，也留給自己。
+      </p>
+
+
+      <div class="about-points">
+
+        <div class="about-point">
+          <i class="fa-solid fa-check"></i>
+          台南在地服務
+        </div>
+
+        <div class="about-point">
+          <i class="fa-solid fa-check"></i>
+          免費場勘
+        </div>
+
+        <div class="about-point">
+          <i class="fa-solid fa-check"></i>
+          客製化評估
+        </div>
+
+        <div class="about-point">
+          <i class="fa-solid fa-check"></i>
+          清潔用品自備
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section id="faq">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span class="tag">
+        FAQ
+      </span>
+
+      <h2>
+        常見問題
+      </h2>
+
+      <p>
+        第一次預約清潔服務嗎？
+        我們先把最常遇到的問題整理在這裡。
+      </p>
+
+    </div>
+
+
+    <div class="faq-wrapper">
+
+
+      <!-- FAQ 1 -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>
+            Q1：小浣熊有哪些清潔服務？
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            目前主要提供：
+            標準居家清潔、大掃除／深度清潔、
+            退租入住清潔與裝潢後細清。
+
+            若有特殊清潔需求，
+            也可以先透過 LINE 提供照片與說明，
+            我們會協助評估。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FAQ 2 -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>
+            Q2：需要自己準備清潔工具或清潔劑嗎？
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            不需要。
+            清潔團隊會攜帶服務所需的工具與清潔用品。
+
+            如果您有特殊材質、
+            指定使用自己的清潔用品，
+            或對特定清潔劑有需求，
+            請在預約前先告知我們。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FAQ 3 -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>
+            Q3：有哪些可以預約的時間？
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            標準居家清潔主要提供兩個時段：
+
+            <ul>
+              <li>上午 8:30–12:30</li>
+              <li>下午 2:00–6:00</li>
+            </ul>
+
+            若是大掃除、裝潢細清或其他大型案件，
+            時間會依實際服務內容另外安排。
+
+            建議至少提前 2～3 週詢問，
+            較容易安排到理想日期。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FAQ 4 -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>
+            Q4：預約後可以更改或取消嗎？
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <strong>標準居家清潔：</strong><br>
+            如需更改或取消，
+            請至少於服務前 24 小時通知。
+            24 小時內臨時取消或更改，
+            將酌收 NT$500。
+
+            <br><br>
+
+            <strong>大掃除／客製案件：</strong><br>
+            預約時需支付 30% 訂金。
+
+            <ul>
+              <li>3 週前通知：免費更改</li>
+              <li>2 週前通知：扣訂金 30%</li>
+              <li>1 週前通知：扣訂金 70%</li>
+              <li>7 天內更改或取消：訂金不退還</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FAQ 5 -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>
+            Q5：清潔人員服務時，我一定要在家嗎？
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            不一定。
+
+            不過第一次合作時，
+            建議服務開始前能先與清潔人員確認
+            清潔範圍、重點區域與物品注意事項。
+
+            完成需求確認後，
+            是否留在家中可依您的安排決定。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FAQ 6 -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>
+            Q6：4 小時內如果清不完整間房子怎麼辦？
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            標準居家清潔是以「服務時間」安排清潔內容，
+            並不是保證在固定時數內完成整間住宅。
+
+            第一次預約時，
+            建議先列出最希望處理的區域，
+            我們會依照優先順序進行。
+
+            若主要區域提早完成，
+            再與您確認剩餘時間可以處理哪些地方。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FAQ 7 -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>
+            Q7：多久安排一次居家清潔比較適合？
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            可以依家庭人數與生活習慣安排：
+
+            <ul>
+              <li>
+                每週一次：
+                適合希望家中維持較高整潔度的家庭
+              </li>
+
+              <li>
+                每兩週一次：
+                適合工作繁忙、
+                平時只能進行簡單整理的家庭
+              </li>
+
+              <li>
+                每月一次：
+                適合居住人口較少，
+                或希望定期處理廚房、浴室等重點區域
+              </li>
+            </ul>
+
+            實際頻率沒有一定標準，
+            選擇符合自己的生活方式最重要。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta-section">
+
+  <div class="container">
+
+    <div class="cta-box">
+
+      <h2>
+        想讓家裡重新變得乾淨舒服？
+      </h2>
+
+
+      <p>
+        不確定自己的需求適合哪一種清潔方案也沒關係。
+        加入 LINE 告訴我們空間狀況與希望處理的區域，
+        我們會協助您評估。
+      </p>
+
+
+      <div class="cta-buttons">
+
+        <a
+          href="https://lin.ee/OutrShx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <i class="fa-brands fa-line"></i>
+          LINE 免費諮詢
+        </a>
+
+
+        <a
+          href="tel:0921702599"
+          class="btn cta-phone"
+        >
+          <i class="fa-solid fa-phone"></i>
+          0921-702-599
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
-    © 小浣熊居家清潔 Raccoon Cleaning ｜ 台南專業清潔服務
-    <div class="social-links">
-      <a href="https://www.instagram.com/raccoon_cleaning_?igsh=eG56NTJhYmx5eDQy&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/raccooncleaning99" target="_blank"><i class="fab fa-facebook-square"></i></a>
-      <div id="page-views" style="text-align: center; margin-top: 20px;">
-</div>
+
+  <div class="container footer-main">
+
+
+    <div>
+
+      <div class="footer-brand">
+
+        <img
+          src="static/logo.jpg"
+          alt="小浣熊居家清潔 Logo"
+        >
+
+        <div>
+          <strong>
+            小浣熊居家清潔
+          </strong>
+
+          <span>
+            Raccoon Cleaning
+          </span>
+        </div>
+
+      </div>
+
+
+      <p class="footer-description">
+        台南專業居家清潔服務。
+        從日常清潔、大掃除、搬家清潔到裝潢後細清，
+        用細心與專業照顧每一個生活空間。
+      </p>
+
+
+      <div class="social-links">
+
+        <a
+          href="https://www.instagram.com/raccoon_cleaning_?igsh=eG56NTJhYmx5eDQy&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+
+        <a
+          href="https://www.facebook.com/raccooncleaning99"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+
+        <a
+          href="https://lin.ee/OutrShx"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LINE"
+        >
+          <i class="fa-brands fa-line"></i>
+        </a>
+
+      </div>
 
     </div>
-  </footer>
 
-  <!-- LINE 浮動按鈕 -->
-<a href="https://lin.ee/OutrShx" class="floating-btn floating-line" target="_blank">
-    💬 LINE 聯絡
-  </a>
-  
-  <!-- IG 浮動按鈕 -->
-  <a href="https://www.instagram.com/raccoon_cleaning_?igsh=eG56NTJhYmx5eDQy&utm_source=qr" class="floating-btn floating-ig" target="_blank">
-    📸 IG 動態
-  </a>
-  
-  <!-- FB 浮動按鈕 -->
-  <a href="https://www.facebook.com/raccooncleaning99" class="floating-btn floating-fb" target="_blank">
-    👍 FB 粉專
-  </a>
-  
+
+
+    <div>
+
+      <h3 class="footer-title">
+        快速連結
+      </h3>
+
+
+      <div class="footer-links">
+
+        <a href="#services">
+          服務項目
+        </a>
+
+        <a href="#cases">
+          清潔案例
+        </a>
+
+        <a href="#process">
+          服務流程
+        </a>
+
+        <a href="#about">
+          關於我們
+        </a>
+
+        <a href="#faq">
+          常見問題
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer-contact">
+
+      <h3 class="footer-title">
+        聯絡小浣熊
+      </h3>
+
+
+      <p>
+        <i class="fa-solid fa-phone"></i>
+        0921-702-599 劉先生
+      </p>
+
+
+      <p>
+        <i class="fa-solid fa-clock"></i>
+        週一至週日 08:30–20:00
+      </p>
+
+
+      <p>
+        <i class="fa-solid fa-location-dot"></i>
+        台南地區居家清潔服務
+      </p>
+
+
+      <p>
+        <i class="fa-brands fa-line"></i>
+        LINE 線上預約與諮詢
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    © <span id="currentYear"></span>
+    小浣熊居家清潔 Raccoon Cleaning
+    ｜ 台南專業居家清潔
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================
+     浮動 LINE 按鈕
+========================= -->
+
+<a
+  href="https://lin.ee/OutrShx"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="floating-line"
+>
+  <i class="fa-brands fa-line"></i>
+  LINE 預約
+</a>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
- fetch('https://api.countapi.xyz/hit/jessie1121_raccoon/website_views')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('page-views').textContent = '瀏覽次數：' + data.value;
-    })
-    .catch(error => {
-      console.error('無法載入瀏覽次數：', error);
-      document.getElementById('page-views').textContent = '瀏覽次數：無法載入';
+
+  /* -------------------------
+     手機版選單
+  ------------------------- */
+
+  const menuToggle =
+    document.getElementById("menuToggle");
+
+  const navLinks =
+    document.getElementById("navLinks");
+
+
+  menuToggle.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+  });
+
+
+  /* 點擊選單後自動收起 */
+
+  document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+      });
+
     });
+
+
+
+  /* -------------------------
+     FAQ Accordion
+  ------------------------- */
+
+  const faqItems =
+    document.querySelectorAll(".faq-item");
+
+
+  faqItems.forEach(item => {
+
+    const question =
+      item.querySelector(".faq-question");
+
+    const answer =
+      item.querySelector(".faq-answer");
+
+
+    question.addEventListener("click", () => {
+
+      const isActive =
+        item.classList.contains("active");
+
+
+      /* 先關閉其他 FAQ */
+
+      faqItems.forEach(otherItem => {
+
+        otherItem.classList.remove("active");
+
+        const otherAnswer =
+          otherItem.querySelector(".faq-answer");
+
+        otherAnswer.style.maxHeight = null;
+
+      });
+
+
+      /* 如果原本沒開啟，就開啟 */
+
+      if (!isActive) {
+
+        item.classList.add("active");
+
+        answer.style.maxHeight =
+          answer.scrollHeight + "px";
+
+      }
+
+    });
+
+  });
+
+
+
+  /* -------------------------
+     Footer 年份
+  ------------------------- */
+
+  document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
 </script>
 
-  
+
 </body>
 </html>
